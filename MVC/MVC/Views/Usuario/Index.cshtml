@@ -1,0 +1,150 @@
+﻿@model List<MVC.Models.Persona>
+@{
+    ViewBag.Title = "Usuarios Registrados";
+}
+
+<link href="~/Content/Estilos/Estilos.css" rel="stylesheet" />
+
+<div class="modal fade" data-backdrop="static" id="centro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row container-fluid" style="background-color:white; border-radius:5px">
+    <br />
+    <div class="row Titulo alinearCentro">
+        <label class="alinearCentro">@ViewBag.Title</label>
+    </div>
+    @{
+        if (TempData["error"] != null)
+        {
+            <br />
+            <div class="alert alert-danger fuenteEstandar" style="width:98%; margin-left:1%">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Información! </strong> @TempData["error"]
+            </div>
+        }
+        else
+             if (TempData["exito"] != null)
+        {
+            <br />
+            <div class="alert alert-info fuenteEstandar" style="width:98%; margin-left:1%">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Información! </strong> @TempData["exito"]
+            </div>
+        }
+
+    }
+
+    <div class="row">
+        <div class="modal-footer">
+            <a href="/Usuario/Create" class="btn BotonNuevo"><i class="glyphicon glyphicon-plus"></i>&nbsp; Nuevo Registro</a>
+        </div>
+    </div>
+
+    <div>
+        <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="Buscar.....">
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-12" style="overflow-x: auto;">
+            <table id="usuarios" style="width:100%" class="table-bordered table-responsive  table-striped table order-table">
+                <tr class="alinearCentro">
+                    @*<td>Id</td>*@
+                    <td class="columnA">Primer Nombre</td>
+                    <td class="columnA">Segundo Nombre</td>
+                    <td class="columnA">Primer Apellido</td>
+                    <td class="columnA">Segundo Apellido</td>
+                    <td class="columnA">Ciudad</td>
+                    <td class="columnA">Edad</td>
+                    <td class="columnA">Opciones</td>
+                    @*<td class="columnA">Opciones</td>*@
+                </tr>
+                @foreach (var elemento in Model)
+                {
+                    <tr class="alinearCentro">
+                        @*<td>@elemento.Id_usuario</td>*@
+                        <td>@elemento.PrimerNombre</td>
+                        <td>@elemento.SegundoNombre</td>
+                        <td>@elemento.PrimerApellido</td>
+                        <td>@elemento.SegundoApellido</td>
+                        <td>@elemento.Ciudad</td>
+                        <td>@elemento.Edad</td>
+                        <td width="12%">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a id="Ver" class="btn btn-success btn-xs" href="/Usuario/Detalles/@elemento.Id_usuario" data-toggle="modal" data-target="#centro" title="Ver">
+                                    <i class="glyphicon glyphicon-eye-open " aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <div class="col-md-4">                                
+                                @Html.ActionLink(" ", "Editar", new { id = elemento.Id_usuario }, new { @class = "glyphicon glyphicon-pencil btn  btn-primary btn-xs ", @title = "Editar" })
+                            </div>
+                            <div class="col-md-4">
+                                <a id="editar" class="btn btn-danger btn-xs" href="/Usuario/Eliminar/@elemento.Id_usuario" data-toggle="modal" data-target="#centro" title="Eliminar">
+                                    <i class="glyphicon glyphicon-trash " aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+    </div>
+    <br />
+</div>
+
+
+<script type="text/javascript">
+    (function (document) {
+        'use strict';
+
+        var LightTableFilter = (function (Arr) {
+
+            var _input;
+
+            function _onInputEvent(e) {
+                _input = e.target;
+                var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+                Arr.forEach.call(tables, function (table) {
+                    Arr.forEach.call(table.tBodies, function (tbody) {
+                        Arr.forEach.call(tbody.rows, _filter);
+                    });
+                });
+            }
+
+
+            function _filter(row) {
+                var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+                row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+            }
+
+
+            return {
+                init: function () {
+                    var inputs = document.getElementsByClassName('light-table-filter');
+                    Arr.forEach.call(inputs, function (input) {
+                        input.oninput = _onInputEvent;
+                    });
+                }
+            };
+        })(Array.prototype);
+
+        document.addEventListener('readystatechange', function () {
+            if (document.readyState === 'complete') {
+                LightTableFilter.init();
+            }
+        });
+
+    })(document);
+</script>
+
+

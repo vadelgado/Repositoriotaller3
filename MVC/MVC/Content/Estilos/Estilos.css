@@ -1,0 +1,55 @@
+﻿.alinearCentro{
+    text-align:center;
+}
+
+.Titulo {
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.BotonNuevo {
+    background: #8ED813;
+    color: white;
+    border:none
+}
+
+.botonRegresar {
+    background: #FF2929;
+    color: white ;
+    border:none
+}
+.botonTrash{
+    background: #FF2929;
+    border: none
+}
+
+.columnA {
+    background-color: #949798;
+    color: #FFF;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    text-align: center !important;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.columnB {
+    background-color: #7495A0;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    text-align: center !important;
+    color: #FFF;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.ColorFondo{
+    background-color:antiquewhite
+}
+
+
+body {
+    background: #8E0E00; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1F1C18, #8E0E00); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1F1C18, #8E0E00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
