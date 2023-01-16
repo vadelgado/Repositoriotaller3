@@ -14,19 +14,19 @@
 
         <div class="row">
             <div class="col-md-2 ">
+                <label>Identificación: </label>
+            </div>
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Identificacion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
+                <label class="alert-danger"> @ViewBag.repetido </label>
+            </div>
+            <div class="col-md-2 ">
                 <label>Primer Nombre: </label>
             </div>
             <div class="col-md-3">
                 @Html.EditorFor(model => model.PrimerNombre, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PrimerNombre, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.Id_usuario)
-            </div>
-            <div class="col-md-2 ">
-                <label>Segundo Nombre: </label>
-            </div>
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.SegundoNombre, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SegundoNombre, "", new { @class = "text-danger" })
             </div>
 
         </div>
@@ -40,28 +40,39 @@
                 @Html.ValidationMessageFor(model => model.PrimerApellido, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-2 ">
-                <label>Segundo Apellido: </label>
+                <label>Fecha Nacimiento: </label>
             </div>
             <div class="col-md-3">
-                @Html.EditorFor(model => model.SegundoApellido, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SegundoApellido, "", new { @class = "text-danger" })
+
+                @Html.EditorFor(model => model.Fecha_de_nacimiento, new { htmlAttributes = new { @class = "form-control", @type = "date", @max = ViewBag.fecha } })
+                @Html.ValidationMessageFor(model => model.Fecha_de_nacimiento, "", new { @class = "text-danger" })
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col-md-2 ">
-                <label>Ciudad: </label>
+                <label>Dirección: </label>
             </div>
             <div class="col-md-3">
-                @Html.EditorFor(model => model.Ciudad, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ciudad, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-2 ">
-                <label>Edad: </label>
+                <label>Correo: </label>
             </div>
             <div class="col-md-3">
-                @Html.EditorFor(model => model.Edad, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Edad, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+            </div>
+
+        </div><br>
+        <div class="row">
+            <div class="col-md-2 ">
+                <label>Teléfono: </label>
+            </div>
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
             </div>
 
         </div>
