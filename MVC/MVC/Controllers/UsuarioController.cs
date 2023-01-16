@@ -30,21 +30,21 @@ namespace MVC.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
-                {
-                    var dato = new Persona();
-                    dato.PrimerNombre = persona.PrimerNombre;
-                    dato.SegundoNombre = persona.SegundoNombre;
-                    dato.PrimerApellido = persona.PrimerApellido;
-                    dato.SegundoApellido = persona.SegundoApellido;
-                    dato.Ciudad = persona.Ciudad;
-                    dato.Edad = persona.Edad;
+                //if (ModelState.IsValid)
+                //{
+                //    var dato = new Persona();
+                //    dato.PrimerNombre = persona.PrimerNombre;
+                //    dato.SegundoNombre = persona.SegundoNombre;
+                //    dato.PrimerApellido = persona.PrimerApellido;
+                //    dato.SegundoApellido = persona.SegundoApellido;
+                //    dato.Ciudad = persona.Ciudad;
+                //    dato.Edad = persona.Edad;
 
-                    db.Persona.Add(dato);
-                    db.SaveChanges();
-                    TempData["exito"] = "Registro agregado con éxito!";
-                    return RedirectToAction("Index");
-                }
+                //    db.Persona.Add(dato);
+                //    db.SaveChanges();
+                //    TempData["exito"] = "Registro agregado con éxito!";
+                //    return RedirectToAction("Index");
+                //}
                 return View(persona);
             }
             catch (Exception ex)
@@ -69,17 +69,17 @@ namespace MVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var usuario = db.Persona.Find(persona.Id_usuario);
-                    usuario.PrimerNombre = persona.PrimerNombre;
-                    usuario.SegundoNombre = persona.SegundoNombre;
-                    usuario.PrimerApellido = persona.PrimerApellido;
-                    usuario.SegundoApellido = persona.SegundoApellido;
-                    usuario.Ciudad = persona.Ciudad;
-                    usuario.Edad = persona.Edad;
-                    db.Entry(usuario).State = EntityState.Modified;
-                    db.SaveChanges();
-                    TempData["exito"] = "Registro actualizado con éxito!";
-                    return RedirectToAction("Index");
+                    //var usuario = db.Persona.Find(persona.Id_usuario);
+                    //usuario.PrimerNombre = persona.PrimerNombre;
+                    //usuario.SegundoNombre = persona.SegundoNombre;
+                    //usuario.PrimerApellido = persona.PrimerApellido;
+                    //usuario.SegundoApellido = persona.SegundoApellido;
+                    //usuario.Ciudad = persona.Ciudad;
+                    //usuario.Edad = persona.Edad;
+                    //db.Entry(usuario).State = EntityState.Modified;
+                    //db.SaveChanges();
+                    //TempData["exito"] = "Registro actualizado con éxito!";
+                    //return RedirectToAction("Index");
                 }
                 return View(persona);
             }
@@ -101,10 +101,10 @@ namespace MVC.Controllers
         {
             try
             {
-                var usuario = db.Persona.Find(persona.Id_usuario);
-                db.Persona.Remove(usuario);
-                db.SaveChanges();
-                TempData["exito"] = "Registro eliminado con éxito!";
+                //var usuario = db.Persona.Find(persona.Id_usuario);
+                //db.Persona.Remove(usuario);
+                //db.SaveChanges();
+                //TempData["exito"] = "Registro eliminado con éxito!";
                 return RedirectToAction("Index");
             }
             catch(Exception ex)

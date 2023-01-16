@@ -70,26 +70,26 @@
                 {
                     <tr class="alinearCentro">
                         @*<td>@elemento.Id_usuario</td>*@
-                        <td>@elemento.PrimerNombre</td>
+                        @*<td>@elemento.PrimerNombre</td>
                         <td>@elemento.SegundoNombre</td>
                         <td>@elemento.PrimerApellido</td>
                         <td>@elemento.SegundoApellido</td>
                         <td>@elemento.Ciudad</td>
-                        <td>@elemento.Edad</td>
+                        <td>@elemento.Edad</td>*@
                         <td width="12%">
                         <div class="row">
                             <div class="col-md-4">
-                                <a id="Ver" class="btn btn-success btn-xs" href="/Usuario/Detalles/@elemento.Id_usuario" data-toggle="modal" data-target="#centro" title="Ver">
+                                @*<a id="Ver" class="btn btn-success btn-xs" href="/Usuario/Detalles/@elemento.Id_usuario" data-toggle="modal" data-target="#centro" title="Ver">
                                     <i class="glyphicon glyphicon-eye-open " aria-hidden="true"></i>
-                                </a>
+                                </a*@>
                             </div>
                             <div class="col-md-4">                                
-                                @Html.ActionLink(" ", "Editar", new { id = elemento.Id_usuario }, new { @class = "glyphicon glyphicon-pencil btn  btn-primary btn-xs ", @title = "Editar" })
+                                @*@Html.ActionLink(" ", "Editar", new { id = elemento.Id_usuario }, new { @class = "glyphicon glyphicon-pencil btn  btn-primary btn-xs ", @title = "Editar" })*@
                             </div>
                             <div class="col-md-4">
-                                <a id="editar" class="btn btn-danger btn-xs" href="/Usuario/Eliminar/@elemento.Id_usuario" data-toggle="modal" data-target="#centro" title="Eliminar">
+                                @*<a id="editar" class="btn btn-danger btn-xs" href="/Usuario/Eliminar/@elemento.Id_usuario" data-toggle="modal" data-target="#centro" title="Eliminar">
                                     <i class="glyphicon glyphicon-trash " aria-hidden="true"></i>
-                                </a>
+                                </a>*@
                             </div>
                         </div>
                         </td>

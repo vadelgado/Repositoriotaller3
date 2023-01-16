@@ -15,28 +15,34 @@ namespace MVC.Models
 
     public partial class Persona
     {
-        public int Id_usuario { get; set; }
+        [Required(ErrorMessage = "* Campo obligatorio")]
+        public string Identificacion { get; set; }
+
         [Required(ErrorMessage = "* Campo obligatorio")]
         [RegularExpression(@"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$",
          ErrorMessage = "Ingrese un Nombre Válido")]
         public string PrimerNombre { get; set; }
+
+        [Required(ErrorMessage = "* Campo obligatorio")]
         [RegularExpression(@"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$",
         ErrorMessage = "Ingrese un Nombre Válido")]
-        public string SegundoNombre { get; set; }
-        [Required(ErrorMessage = "* Campo obligatorio")]
-        [RegularExpression(@"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$",
-         ErrorMessage = "Ingrese un Apellido Válido")]
         public string PrimerApellido { get; set; }
-        [RegularExpression(@"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$",
-        ErrorMessage = "Ingrese un Apellido Válido")]
-        public string SegundoApellido { get; set; }
+
+
         [Required(ErrorMessage = "* Campo obligatorio")]
-        [RegularExpression(@"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$",
-         ErrorMessage = "Ingrese un Ciudad Válido")]
-        public string Ciudad { get; set; }
+        public DateTime Fecha_de_nacimiento { get; set; }
+
+
         [Required(ErrorMessage = "* Campo obligatorio")]
-        [RegularExpression(@"^[0-9]+$",
+        [RegularExpression(@"^[1-14]+$",
          ErrorMessage = "Ingrese valor Válido")]
-        public int Edad { get; set; }
+        public string Direccion { get; set; }
+
+
+        [Required(ErrorMessage = "* Campo obligatorio")]   
+        public string Correo{ get; set; }
+
+        [Required(ErrorMessage = "* Campo obligatorio")]
+        public string Telefono { get; set; }
     }
 }
