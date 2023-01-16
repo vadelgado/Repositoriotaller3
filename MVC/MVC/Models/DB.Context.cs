@@ -25,6 +25,7 @@ namespace MVC.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Persona> Persona { get; set; }
     }
 }

@@ -1,18 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="usuarioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Identificacion" />
+    </Key>
+    <Property Name="Identificacion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PrimerNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PrimerApellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha_de_nacimiento" Type="datetime" Nullable="false" />
+    <Property Name="Direccion" Type="int" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Persona">
     <Key>
-      <PropertyRef Name="Id_usuario" />
+      <PropertyRef Name="Identificacion" />
     </Key>
-    <Property Name="Id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Identificacion" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="PrimerNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="SegundoNombre" Type="nvarchar" MaxLength="50" />
     <Property Name="PrimerApellido" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="SegundoApellido" Type="nvarchar" MaxLength="50" />
-    <Property Name="Ciudad" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Edad" Type="int" Nullable="false" />
+    <Property Name="Fecha_de_nacimiento" Type="date" Nullable="false" />
+    <Property Name="Direccion" Type="int" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityContainer Name="usuarioModelStoreContainer">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
