@@ -13,9 +13,15 @@
         <label> ¿Seguro desea eliminar este usuario?</label>
         <div class="row">
             <div class="col-md-10 ">
-                <label>Usuario: @Html.DisplayFor(model => model.PrimerNombre) @Html.DisplayFor(model => model.PrimerApellido) </label>
-                @Html.HiddenFor(model => model.Id_usuario)
-            </div>                    
+                <label>Identificación: @Html.DisplayFor(model => model.Identificacion) </label>
+                @Html.HiddenFor(model => model.Identificacion)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 ">
+                <label>Nombres y Apellidos: @Html.DisplayFor(model => model.PrimerNombre) @Html.DisplayFor(model => model.PrimerApellido) </label>
+                @Html.HiddenFor(model => model.Identificacion)
+            </div>
         </div>
         <div class="row">
             <div class="text-right col-md-12">

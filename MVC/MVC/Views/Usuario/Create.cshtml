@@ -19,7 +19,7 @@
             <div class="col-md-3">
                 @Html.EditorFor(model => model.Identificacion, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
-                <label class="alert-danger"> @ViewBag.repetido </label>
+                <label style="color:red"> @ViewBag.repetido </label>
             </div>
             <div class="col-md-2 ">
                 <label>Primer Nombre: </label>
@@ -44,17 +44,17 @@
             </div>
             <div class="col-md-3">
                 
-                @Html.EditorFor(model => model.Fecha_de_nacimiento, new { htmlAttributes = new { @class = "form-control", @type="date", @max = ViewBag.fecha} })
+                @Html.EditorFor(model => model.Fecha_de_nacimiento, new { htmlAttributes = new { @class = "form-control", @type="date", @max =DateTime.Now.ToString("yyyy-MM-dd") } })
                 @Html.ValidationMessageFor(model => model.Fecha_de_nacimiento, "", new { @class = "text-danger" })
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col-md-2 ">
-                <label>Dirección: </label>
+                <label>Número de Comuna: </label>
             </div>
             <div class="col-md-3">
-                @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control", @min=1, @max=14 } })
                 @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-2 ">
@@ -79,7 +79,7 @@
         <br />
         <div class="row">
             <div class="modal-footer">
-                <a href="/Usuario" class="btn botonRegresar" id="n"><i class="glyphicon glyphicon-arrow-left"></i>&nbsp;Regresar</a>
+                <a href="/Usuario" class="btn botonRegresar" id="n"><i class="glyphicon glyphicon-circle-arrow-left"></i>&nbsp;Volver</a>
                 <button class=" btn BotonNuevo"><i class="glyphicon glyphicon-plus"></i>&nbsp;Añadir Registro</button>
             </div>
         </div>
