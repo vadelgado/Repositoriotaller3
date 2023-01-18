@@ -16,12 +16,13 @@ namespace MVC.Controllers
         {
             var list = db.Persona.ToList();
 
+
             return View(list);
         }
 
         public ActionResult Create()
         {
-
+            ViewBag.fecha = DateTime.Now;
             return View();
         }
 
@@ -30,22 +31,36 @@ namespace MVC.Controllers
         {
             try
             {
-                //if (ModelState.IsValid)
-                //{
-                //    var dato = new Persona();
-                //    dato.PrimerNombre = persona.PrimerNombre;
-                //    dato.SegundoNombre = persona.SegundoNombre;
-                //    dato.PrimerApellido = persona.PrimerApellido;
-                //    dato.SegundoApellido = persona.SegundoApellido;
-                //    dato.Ciudad = persona.Ciudad;
-                //    dato.Edad = persona.Edad;
+                var validar = db.Persona.Where(x => x.Identificacion == persona.Identificacion).Any(); 
+                if (!validar) 
+                {
+                    if (ModelState.IsValid)
+                    {
+                        var dato = new Persona();
+                        dato.Identificacion = persona.Identificacion;
+                        dato.PrimerNombre = persona.PrimerNombre;
+                        dato.PrimerApellido = persona.PrimerApellido;
+                        dato.Fecha_de_nacimiento = persona.Fecha_de_nacimiento;
+                        dato.Direccion = persona.Direccion;
+                        dato.Correo = persona.Correo;
+                        dato.Telefono = persona.Telefono;
 
-                //    db.Persona.Add(dato);
-                //    db.SaveChanges();
-                //    TempData["exito"] = "Registro agregado con éxito!";
-                //    return RedirectToAction("Index");
-                //}
-                return View(persona);
+                        db.Persona.Add(dato);
+                        db.SaveChanges();
+                        TempData["exito"] = "Registro agregado con éxito!";
+                        return RedirectToAction("Index");
+                    }else
+                    {
+                        return View(persona);
+                    }
+
+                }
+                else
+                {
+                    ViewBag.repetido = "El número de identificación ya está registrado";
+                    return View(persona);
+                }
+      
             }
             catch (Exception ex)
             {

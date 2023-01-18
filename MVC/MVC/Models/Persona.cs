@@ -30,17 +30,17 @@ namespace MVC.Models
 
 
         [Required(ErrorMessage = "* Campo obligatorio")]
-        public DateTime Fecha_de_nacimiento { get; set; }
+        public System.DateTime Fecha_de_nacimiento { get; set; }
 
 
         [Required(ErrorMessage = "* Campo obligatorio")]
         [RegularExpression(@"^[1-14]+$",
          ErrorMessage = "Ingrese valor Válido")]
-        public string Direccion { get; set; }
+        public int Direccion { get; set; }
 
 
-        [Required(ErrorMessage = "* Campo obligatorio")]   
-        public string Correo{ get; set; }
+        [Required(ErrorMessage = "* Campo obligatorio")]
+        public string Correo { get; set; }
 
         [Required(ErrorMessage = "* Campo obligatorio")]
         public string Telefono { get; set; }
