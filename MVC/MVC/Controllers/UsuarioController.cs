@@ -71,9 +71,9 @@ namespace MVC.Controllers
         }
 
 
-        public ActionResult Editar(int id)
+        public ActionResult Editar(string Identificacion)
         {
-            var usuario = db.Persona.Find(id);
+            var usuario = db.Persona.Find(Identificacion);
             return View(usuario);
         }
 
@@ -82,21 +82,35 @@ namespace MVC.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
+                var validar = db.Persona.Where(x => x.Identificacion == persona.Identificacion).Any();
+                if (!validar)
                 {
-                    //var usuario = db.Persona.Find(persona.Id_usuario);
-                    //usuario.PrimerNombre = persona.PrimerNombre;
-                    //usuario.SegundoNombre = persona.SegundoNombre;
-                    //usuario.PrimerApellido = persona.PrimerApellido;
-                    //usuario.SegundoApellido = persona.SegundoApellido;
-                    //usuario.Ciudad = persona.Ciudad;
-                    //usuario.Edad = persona.Edad;
-                    //db.Entry(usuario).State = EntityState.Modified;
-                    //db.SaveChanges();
-                    //TempData["exito"] = "Registro actualizado con éxito!";
-                    //return RedirectToAction("Index");
+                    if (ModelState.IsValid)
+                    {
+                        var dato = new Persona();
+                        dato.Identificacion = persona.Identificacion;
+                        dato.PrimerNombre = persona.PrimerNombre;
+                        dato.PrimerApellido = persona.PrimerApellido;
+                        dato.Fecha_de_nacimiento = persona.Fecha_de_nacimiento;
+                        dato.Direccion = persona.Direccion;
+                        dato.Correo = persona.Correo;
+                        dato.Telefono = persona.Telefono;
+                        db.Entry(dato).State = EntityState.Modified;
+                        db.SaveChanges();
+                        TempData["exito"] = "Registro actualizado con éxito!";
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        return View(persona);
+                    }
+                   
                 }
-                return View(persona);
+                else{
+                    ViewBag.repetido = "El número de identificación ya está registrado";
+                    return View(persona);
+                }
+               
             }
             catch (Exception ex)
             {
@@ -130,7 +144,7 @@ namespace MVC.Controllers
            
         }
 
-        public ActionResult Detalles(int id)
+        public ActionResult Detalles(string id)
         {
             var usuario = db.Persona.Find(id);
             return View(usuario);

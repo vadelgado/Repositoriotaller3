@@ -57,14 +57,14 @@
             <table id="usuarios" style="width:100%" class="table-bordered table-responsive  table-striped table order-table">
                 <tr class="alinearCentro">
                     @*<td>Id</td>*@
-                    <td class="columnA">Primer Nombre</td>
-                    <td class="columnA">Segundo Nombre</td>
-                    <td class="columnA">Primer Apellido</td>
-                    <td class="columnA">Segundo Apellido</td>
-                    <td class="columnA">Ciudad</td>
-                    <td class="columnA">Edad</td>
+                    <td class="columnA">Identificacion</td>
+                    <td class="columnA">Nombre</td>
+                    <td class="columnA">Apellido</td>
+                    <td class="columnA">Fecha de nacimiento</td>
+                    <td class="columnA">Comuna</td>
+                    <td class="columnA">Correo</td>
+                    <td class="columnA">Telefono</td>
                     <td class="columnA">Opciones</td>
-                    @*<td class="columnA">Opciones</td>*@
                 </tr>
                 @foreach (var elemento in Model)
                 {
@@ -79,12 +79,14 @@
                         <td width="12%">
                         <div class="row">
                             <div class="col-md-4">
-                                @*<a id="Ver" class="btn btn-success btn-xs" href="/Usuario/Detalles/@elemento.Id_usuario" data-toggle="modal" data-target="#centro" title="Ver">
+                                <a id="Ver" class="btn btn-success btn-xs" href="/Usuario/Detalles/@elemento.Identificacion" data-toggle="modal" data-target="#centro" title="Ver">
                                     <i class="glyphicon glyphicon-eye-open " aria-hidden="true"></i>
-                                </a*@>
+                                </a>
                             </div>
                             <div class="col-md-4">                                
-                                @*@Html.ActionLink(" ", "Editar", new { id = elemento.Id_usuario }, new { @class = "glyphicon glyphicon-pencil btn  btn-primary btn-xs ", @title = "Editar" })*@
+                               <a id="editar" class="btn btn-danger btn-xs" href="/Usuario/Editar/=?+@elemento.Identificacion"  title="Editar">
+                                    <i class="glyphicon glyphicon-pencil " aria-hidden="true"></i>
+                                </a>
                             </div>
                             <div class="col-md-4">
                                 @*<a id="editar" class="btn btn-danger btn-xs" href="/Usuario/Eliminar/@elemento.Id_usuario" data-toggle="modal" data-target="#centro" title="Eliminar">
