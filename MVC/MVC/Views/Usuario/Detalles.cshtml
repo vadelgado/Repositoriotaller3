@@ -8,58 +8,39 @@
 <div class="row container-fluid" style="background-color:white; border-radius:5px">
     <h4 class="alinearCentro"><b>@ViewBag.Title</b></h4>
     <br />
-        <div class="row">
-            <div class="col-md-3 ">
-                <label>Primer Nombre: </label>
-            </div>
-            <div class="col-md-3">
-                @Html.DisplayFor(model => model.PrimerNombre)
-            </div>
-            <div class="col-md-3 ">
-                <label>Segundo Nombre: </label>
-            </div>
-            <div class="col-md-3">
-                @*@Html.DisplayFor(model => model.SegundoNombre)*@
-            </div>
-
+    <div class="row">
+        <div class="col-md-6 ">
+            <label>Identificación: </label>   @Html.DisplayFor(model => model.Identificacion)
         </div>
-
-        <div class="row">
-            <div class="col-md-3 ">
-                <label>Primer Apellido: </label>
-            </div>
-            <div class="col-md-3">
-                @Html.DisplayFor(model => model.PrimerApellido)
-            </div>
-            <div class="col-md-3 ">
-                <label>Segundo Apellido: </label>
-            </div>
-            <div class="col-md-3">
-                @*@Html.DisplayFor(model => model.SegundoApellido)*@
-            </div>
+        <div class="col-md-6 ">
+            <label>Nombre y Apellido: </label>   @Html.DisplayFor(model => model.PrimerNombre) @Html.DisplayFor(model => model.PrimerApellido)
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 ">
+            <label>Fecha de Nacimiento: </label>   @Model.Fecha_de_nacimiento.ToShortDateString()
+        </div>
+        <div class="col-md-6 ">
+            <label>Dirección: </label> Comuna No.   @Html.DisplayFor(model => model.Direccion)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 ">
+            <label>Correo: </label>   @Html.DisplayFor(model => model.Correo)
+        </div>
+        <div class="col-md-6 ">
+            <label>Téléfono: </label> @Html.DisplayFor(model => model.Telefono)
+        </div>
+    </div>
 
-        @*<div class="row">
-            <div class="col-md-3 ">
-                <label>Ciudad: </label>
-            </div>
-            <div class="col-md-3">
-                @Html.DisplayFor(model => model.Ciudad)
-            </div>
-            <div class="col-md-3 ">
-                <label>Edad: </label>
-            </div>
-            <div class="col-md-3">
-                @Html.DisplayFor(model => model.Edad)
-            </div>
 
-        </div>*@
+   
     <br />
-        <div class="row">
-            <div class="col-md-12 text-right">
-                <a href="/Usuario" class="btn botonRegresar btn-sm" id="n"><i class="glyphicon glyphicon-arrow-left"></i>&nbsp;Regresar</a>
-            </div>
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <a href="/Usuario" class="btn botonRegresar btn-sm" id="n"><i class="glyphicon glyphicon-circle-arrow-left"></i>&nbsp;Volver</a>
         </div>
-        <br />
+    </div>
+    <br />
 
 </div>

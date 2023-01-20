@@ -30,11 +30,13 @@ namespace MVC.Models
 
 
         [Required(ErrorMessage = "* Campo obligatorio")]
-        public System.DateTime Fecha_de_nacimiento { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        public DateTime Fecha_de_nacimiento { get; set; }
 
 
         [Required(ErrorMessage = "* Campo obligatorio")]
-        [RegularExpression(@"^[1-14]+$",
+        [RegularExpression(@"^[0-9]+$",
          ErrorMessage = "Ingrese valor Válido")]
         public int Direccion { get; set; }
 
