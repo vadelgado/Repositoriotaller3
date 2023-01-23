@@ -7,43 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-using System;
-
-
+namespace MVC.Models
+{
     using System;
     using System.Collections.Generic;
     
     public partial class Cliente
     {
-    [Required(ErrorMessage = "* Campo obligatorio")]
-    public string Identificacion { get; set; }
-
-    [Required(ErrorMessage = "* Campo obligatorio")]
-    [RegularExpression(@"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$",
-     ErrorMessage = "Ingrese un Nombre Válido")]
-    public string PrimerNombre { get; set; }
-
-    [Required(ErrorMessage = "* Campo obligatorio")]
-    [RegularExpression(@"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$",
-    ErrorMessage = "Ingrese un Nombre Válido")]
-    public string PrimerApellido { get; set; }
-
-
-    [Required(ErrorMessage = "* Campo obligatorio")]
-    public System.DateTime Fecha_de_nacimiento { get; set; }
-
-
-    [Required(ErrorMessage = "* Campo obligatorio")]
-    [RegularExpression(@"^[1-14]+$",
-     ErrorMessage = "Ingrese valor Válido")]
-    public int Direccion { get; set; }
-
-
-    [Required(ErrorMessage = "* Campo obligatorio")]
-    public string Correo { get; set; }
-
-    [Required(ErrorMessage = "* Campo obligatorio")]
-    public string Telefono { get; set; }
-   
+        public string Identificacion { get; set; }
+        public string PrimerNombre { get; set; }
+        public string PrimerApellido { get; set; }
+        public System.DateTime Fecha_de_nacimiento { get; set; }
+        public int Direccion { get; set; }
+        public string Correo { get; set; }
+        public string Telefono { get; set; }
+    }
 }

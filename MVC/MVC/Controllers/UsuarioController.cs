@@ -8,7 +8,8 @@ using System.Web.Mvc;
 using MVC.Models;
 namespace MVC.Controllers
 {
-    public class UsuarioController : Controller
+    public class UsuarioController : Controller 
+    { 
     
        /* Creating a new instance of the database. */
         usuarioEntities db = new usuarioEntities(); 
@@ -194,13 +195,13 @@ namespace MVC.Controllers
            
         }
 
-/// <summary>
-/// La función Detalles() toma una cadena como parámetro y devuelve una vista del usuario con los datos del usuario.
-/// </summary>
-/// <param name="Identificacion">La llave primaria de la tabla.</param>
-/// <returns>
-/// The view is being returned.
-/// </returns>
+        /// <summary>
+        /// La función Detalles() toma una cadena como parámetro y devuelve una vista del usuario con los datos del usuario.
+        /// </summary>
+        /// <param name="Identificacion">La llave primaria de la tabla.</param>
+        /// <returns>
+        /// The view is being returned.
+        /// </returns>
         public ActionResult Detalles(string Identificacion)
         {
             var usuario = db.Persona.Find(Identificacion);
